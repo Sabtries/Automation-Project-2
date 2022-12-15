@@ -1,5 +1,5 @@
 
-import routesData from '../../data/routes.data'
+import routesData from '../data/routes.data'
 
 
 describe('Authenticate various users', () => {

@@ -6,7 +6,7 @@ module.exports = defineConfig({
       // implement node event listeners here
     },
     baseUrl: 'https://ui-automation-camp.vercel.app/',
-    specPattern: 'cypress/test/*/.cy.{js,jsx,ts,tsx}',
+    specPattern: 'cypress/e2e/test/*.cy.{js,jsx,ts,tsx}',
   
     reporter: 'mochawesome',
     reporterOptions: {
