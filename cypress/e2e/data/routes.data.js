@@ -1,4 +1,5 @@
 module.exports = {
     products: '/products',
-    main: '/'
+    main: '/',
+    detailed: '/products/quality-sweatshirt-hooded'
 }
