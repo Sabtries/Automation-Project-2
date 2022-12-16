@@ -29,16 +29,58 @@ class CartFlow {
         return (`.snipcart__font--secondary.snipcart__font--regular`)
     }
 
+    get cartAmount() {
+        return (`button[class*='secondary snipcart__font--bold'] `)
+    }
+
+    get pillow() {
+        return (`.chakra-button.snipcart-add-item.css-betff9[data-item-id='quality-pillow']`)
+    }
+
+    get decrementBtn() {
+        return (`button[title='Decrement quantity']`)
+    }
+
+    get deleteBtn() {
+        return (`button[title='Remove item']`)
+    }
+
+    get total() {
+        return (`[class*='amount--highlight snipcart__font--large']`)
+    }
+
+    get backButton() {
+        return (`[class="snipcart-modal__close-title snipcart__font--std"]`)
+    }
+
+
+
+    addPillow() {
+        cy.get(this.pillow).click()
+    }
+
     selectMacbook(){
         cy.get(this.macbookPro).click()
     }
 
     increaseProductAmt() {
         cy.get(this.increaseAmt).click()
-    }
+    } 
 
     addLaptopToCart() {
         cy.get(this.cartAdd).click()
+    }
+
+    decreaseQuantity() {
+        cy.get(this.decrementBtn).click()
+    }
+
+    navigateToPageDetail() {
+        cy.get(this.backButton).click()
+    }
+
+    deleteFromCart() {
+        cy.get(this.deleteBtn).click()
     }
 
 }
