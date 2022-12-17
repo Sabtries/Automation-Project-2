@@ -15,5 +15,7 @@ module.exports = defineConfig({
         html: false,
         json: true
       },
+
+      chromeWebSecurity: false,
   },
 });
