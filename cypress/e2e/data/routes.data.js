@@ -5,5 +5,5 @@ module.exports = {
     laptopDetail: '/products/laptop-1',
     cart: '/products/laptop-1#/cart',
     checkout: '/products#/checkout',
-    payment: ''
+    contact: '/contact'
 }
