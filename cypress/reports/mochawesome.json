@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-12-18T04:30:24.332Z",
+    "end": "2022-12-18T04:31:06.612Z",
+    "duration": 42280,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "a6ed3371-1596-4055-90dc-95295849acc5",
+      "title": "",
+      "fullFile": "cypress\\e2e\\test\\AddtoCart.cy.js",
+      "file": "cypress\\e2e\\test\\AddtoCart.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "07625a96-ccc2-4c16-9f55-38b352f9c311",
+          "title": "Verify Product Details",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Select an item from the product gallery page",
+              "fullTitle": "Verify Product Details Select an item from the product gallery page",
+              "timedOut": null,
+              "duration": 18207,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//choose an item from gallery page\n_cart.default.selectMacbook();\ncy.get(_cart.default.title).should('be.visible');\ncy.get(_cart.default.title).should('contain.text', 'Mackbook Pro'); //title of product should be on page\ncy.url().should('include', _routes.default.laptopDetail); //should be directed to this product detail page",
+              "err": {},
+              "uuid": "8c494216-0458-41ec-8e9a-a767e9281fa3",
+              "parentUUID": "07625a96-ccc2-4c16-9f55-38b352f9c311",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Increase product quantity from the product detail page",
+              "fullTitle": "Verify Product Details Increase product quantity from the product detail page",
+              "timedOut": null,
+              "duration": 11723,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//choose an item from gallery page\n_cart.default.selectMacbook(); //increase the qauntity of the product to 2\n\n_cart.default.increaseProductAmt();\ncy.get(_cart.default.quantity).should('contain.value', '2'); //increased number should be shown\ncy.get(_cart.default.price).should('contain.text', '2000'); //price of product should be on page\ncy.url().should('include', _routes.default.laptopDetail);",
+              "err": {},
+              "uuid": "e8f69509-393d-47a6-beee-db50df7e81eb",
+              "parentUUID": "07625a96-ccc2-4c16-9f55-38b352f9c311",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Add items to the cart from the product detail page",
+              "fullTitle": "Verify Product Details Add items to the cart from the product detail page",
+              "timedOut": null,
+              "duration": 11873,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//choose an item from gallery page\n_cart.default.selectMacbook(); //increase the qauntity of the product to 2\n\n_cart.default.increaseProductAmt(); //add the products to cart\n\n_cart.default.addLaptopToCart();\ncy.get(_cart.default.title).should('contain.text', 'Mackbook Pro');\ncy.get(_cart.default.cartQuantity).should('contain.text', '2');\ncy.url().should('include', _routes.default.cart); //should be routed to cart page",
+              "err": {},
+              "uuid": "077dd7d4-44fd-47fa-afd8-bb743d9a4b8a",
+              "parentUUID": "07625a96-ccc2-4c16-9f55-38b352f9c311",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "8c494216-0458-41ec-8e9a-a767e9281fa3",
+            "e8f69509-393d-47a6-beee-db50df7e81eb",
+            "077dd7d4-44fd-47fa-afd8-bb743d9a4b8a"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 41803,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
