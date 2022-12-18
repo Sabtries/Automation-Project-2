@@ -44,7 +44,7 @@ describe('Make various searches', () => {
 
         searchPage.enterSearch('cargo')
 
-        cy.get(searchPage.mousepadImg).should('not.exist') .//a product name that does not include the searched should not exist on the search result
+        cy.get(searchPage.mousepadImg).should('not.exist') //a product name that does not include the searched should not exist on the search result
         cy.get(searchPage.cargo).should('be.visible') //the product searched search be visible on the product gallery page
         cy.get(searchPage.tag).should('contain.text', 'pants')
     })
