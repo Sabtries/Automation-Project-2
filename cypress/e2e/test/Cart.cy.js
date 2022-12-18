@@ -1,7 +1,7 @@
 import routesData from '../data/routes.data'
 import cartPage  from '../pageobjects/cart.page'
 
-describe('Verify Product Details', () => {
+describe('Cart', () => {
     beforeEach (() => {
      cy.visit('/')
      cy.get('#signInOrRegister').click()
