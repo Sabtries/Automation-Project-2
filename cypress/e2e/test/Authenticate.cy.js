@@ -9,13 +9,13 @@ describe('Authenticate various users', () => {
    })
 
    
-    it.only(`Signup user valid credentials`, () => {
+    it(`Signup user valid credentials`, () => {
 
         cy.origin('https://dev-mlluudmotpwoldtv.us.auth0.com', { args: {} }, ({}) => {
             //navigate to the signup form
             cy.get(`li a[href="#"]`).click()
             //sign up a new user with valid email and password
-            cy.get(`input[id*='email']`).type('thishomies@gail.co')
+            cy.get(`input[id*='email']`).type('thinhomies@gail.co')
             cy.get(`[id='1-password']`).type('WordPass1')
             cy.get(`button[type="submit"]`).click()
 

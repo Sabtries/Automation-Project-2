@@ -1,0 +1,181 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-12-18T04:14:25.370Z",
+    "end": "2022-12-18T04:15:02.791Z",
+    "duration": 37421,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "8b2427a4-1d22-4d3a-82fc-cf683825b937",
+      "title": "",
+      "fullFile": "cypress\\e2e\\test\\Authenticate.cy.js",
+      "file": "cypress\\e2e\\test\\Authenticate.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ccdd343a-200c-4a40-b68c-c391269a5065",
+          "title": "Authenticate various users",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Signup user valid credentials",
+              "fullTitle": "Authenticate various users Signup user valid credentials",
+              "timedOut": null,
+              "duration": 14817,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.origin('https://dev-mlluudmotpwoldtv.us.auth0.com', {\n  args: {}\n}, ({}) => {\n  //navigate to the signup form\n  cy.get(`li a[href=\"#\"]`).click(); //sign up a new user with valid email and password\n  cy.get(`input[id*='email']`).type('thizhomies@gail.co');\n  cy.get(`[id='1-password']`).type('WordPass1');\n  cy.get(`button[type=\"submit\"]`).click();\n}); //confirm user is signed in\ncy.url().should('include', '/products');",
+              "err": {},
+              "uuid": "d531398a-a2d9-4b98-88e3-4df7069c90d5",
+              "parentUUID": "ccdd343a-200c-4a40-b68c-c391269a5065",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Signup user with invalid credentials",
+              "fullTitle": "Authenticate various users Signup user with invalid credentials",
+              "timedOut": null,
+              "duration": 5230,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.origin('https://dev-mlluudmotpwoldtv.us.auth0.com', {\n  args: {}\n}, ({}) => {\n  //navigate to the signup form\n  cy.get(`li a[href=\"#\"]`).click(); //sign up a new user with invalid password\n  cy.get(`input[id*='email']`).type('thom@gail.c');\n  cy.get(`[id='1-password']`).type('wordpass1');\n  cy.get(`button[type=\"submit\"]`).click(); //AuthUser.signUpUser('thom@gail.c', 'wordpass1')\n  //confirm user entered incorrect password\n  cy.get('#auth0-lock-error-msg-password').should('contain.text', 'Password is invalid');\n});",
+              "err": {},
+              "uuid": "5cf539a0-381e-4154-bd97-a0a897d9e14a",
+              "parentUUID": "ccdd343a-200c-4a40-b68c-c391269a5065",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Login user with valid credentials",
+              "fullTitle": "Authenticate various users Login user with valid credentials",
+              "timedOut": null,
+              "duration": 6418,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.origin('https://dev-mlluudmotpwoldtv.us.auth0.com', {\n  args: {}\n}, ({}) => {\n  //Login user with valid email and password\n  cy.get(`input[id*='email']`).type('thomie@gail.co');\n  cy.get(`[id='1-password']`).type('WordPass1');\n  cy.get(`button[type=\"submit\"]`).click(); //AuthUser.signUpUser('thom@gail.c', 'wordpass1')\n}); //confirm user is signed in\ncy.url().should('contain', _routes.default.products);\ncy.get('.chakra-text.css-122rm4p').should('contain.text', 'Shop Now');",
+              "err": {},
+              "uuid": "e8d5a8c4-4d13-4b78-b307-84708033d18b",
+              "parentUUID": "ccdd343a-200c-4a40-b68c-c391269a5065",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Login user with invalid credentials",
+              "fullTitle": "Authenticate various users Login user with invalid credentials",
+              "timedOut": null,
+              "duration": 6181,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.origin('https://dev-mlluudmotpwoldtv.us.auth0.com', {\n  args: {}\n}, ({}) => {\n  //Verify user cannot login invalid email and password\n  cy.get(`input[id*='email']`).type('thomie@gail.co');\n  cy.get(`[id='1-password']`).type('orpaass1');\n  cy.get(`button[type=\"submit\"]`).click(); //AuthUser.signUpUser('thom@gail.c', 'wordpass1')\n  //confirm user gets an error message\n  cy.get('.auth0-global-message.auth0-global-message-error').should('contain.text', 'Wrong email or password');\n});",
+              "err": {},
+              "uuid": "638e2208-ca32-4c06-b259-8def904ee5d5",
+              "parentUUID": "ccdd343a-200c-4a40-b68c-c391269a5065",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Reset password",
+              "fullTitle": "Authenticate various users Reset password",
+              "timedOut": null,
+              "duration": 3668,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.origin('https://dev-mlluudmotpwoldtv.us.auth0.com', {\n  args: {}\n}, ({}) => {\n  //Reset password\n  cy.get(`input[id*='email']`).type('thomie@gail.co');\n  cy.get(`a[class='auth0-lock-alternative-link']`).click();\n  cy.get(`div[title='Reset your password']`).should('have.text', 'Reset your password');\n  cy.get(`button[name='submit'] span`).should('be.visible');\n  cy.get(`button[name='submit'] span`).should('contain.text', 'Send email');\n});",
+              "err": {},
+              "uuid": "b84425ba-fe76-49e8-87cd-b77dad23e2fd",
+              "parentUUID": "ccdd343a-200c-4a40-b68c-c391269a5065",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "d531398a-a2d9-4b98-88e3-4df7069c90d5",
+            "5cf539a0-381e-4154-bd97-a0a897d9e14a",
+            "e8d5a8c4-4d13-4b78-b307-84708033d18b",
+            "638e2208-ca32-4c06-b259-8def904ee5d5",
+            "b84425ba-fe76-49e8-87cd-b77dad23e2fd"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 36314,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
