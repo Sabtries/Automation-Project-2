@@ -18,7 +18,7 @@ class pageGallery {
     }
 
     get addHoodedSweatshirt () {
-        return (`button[type='button'][data-item-id='quality-sweatshirt-hooded']`);
+        return (`button[data-item-id='quality-sweatshirt-hooded']`);
     }
 
     get hoodedSweatshirtImg () {
