@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-12-18T01:54:54.450Z",
+    "end": "2022-12-18T01:55:32.791Z",
+    "duration": 38341,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "68a8af6d-33c9-41b5-8449-46a424f9694e",
+      "title": "",
+      "fullFile": "cypress\\e2e\\test\\Contact.cy.js",
+      "file": "cypress\\e2e\\test\\Contact.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "b0e193e6-16b3-4652-b66e-4ad7627eaa1c",
+          "title": "Use various options on the Contact page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verify that incomplete form will not be submitted",
+              "fullTitle": "Use various options on the Contact page Verify that incomplete form will not be submitted",
+              "timedOut": null,
+              "duration": 13652,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_contact.default.contactFormBad(); //faker will complete form without message and submit\n\ncy.get(_contact.default.errorMsg).should('be.visible');\ncy.get(_contact.default.errorMsg).should('contain.text', 'Field is required');\ncy.url().should('contain', _routes.default.contact);",
+              "err": {},
+              "uuid": "90db9b78-abc5-41d7-9c69-9d076d49c5ed",
+              "parentUUID": "b0e193e6-16b3-4652-b66e-4ad7627eaa1c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify that completed form will be submitted",
+              "fullTitle": "Use various options on the Contact page Verify that completed form will be submitted",
+              "timedOut": null,
+              "duration": 14832,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_contact.default.contactForm(); //a faker is used to complete form and submit\n\ncy.get(_contact.default.confirmation).should('be.visible');\ncy.get(_contact.default.confirmation).should('contain.text', 'Message Sent!Your message has been sent!');",
+              "err": {},
+              "uuid": "723279c4-4823-4fdb-94fe-e9e6303bd1ca",
+              "parentUUID": "b0e193e6-16b3-4652-b66e-4ad7627eaa1c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify url for LinkedIn",
+              "fullTitle": "Use various options on the Contact page Verify url for LinkedIn",
+              "timedOut": null,
+              "duration": 9615,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_contact.default.contactViaLinkedIn();\ncy.get(_contact.default.confirmation).should('not.be.visible'); //verify that the link is present\ncy.get(_contact.default.linkedinBtn).should('have.attr', 'href', 'https://www.linkedin.com/company/qualityworks-consulting-group-llc');",
+              "err": {},
+              "uuid": "48d32057-7a12-47d0-95f4-d9e047b02085",
+              "parentUUID": "b0e193e6-16b3-4652-b66e-4ad7627eaa1c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "90db9b78-abc5-41d7-9c69-9d076d49c5ed",
+            "723279c4-4823-4fdb-94fe-e9e6303bd1ca",
+            "48d32057-7a12-47d0-95f4-d9e047b02085"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 38099,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

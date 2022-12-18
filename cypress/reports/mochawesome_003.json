@@ -1,0 +1,148 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 2,
+    "pending": 0,
+    "failures": 1,
+    "start": "2022-12-18T01:53:27.949Z",
+    "end": "2022-12-18T01:54:38.295Z",
+    "duration": 70346,
+    "testsRegistered": 3,
+    "passPercent": 66.66666666666666,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "2267922b-8b3f-4363-861e-36647c4b15df",
+      "title": "",
+      "fullFile": "cypress\\e2e\\test\\Checkout.cy.js",
+      "file": "cypress\\e2e\\test\\Checkout.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "36d11a69-3a65-4f36-a389-9060913fcbc4",
+          "title": "Complete a Checkout Workflow",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Add a product to complete billing using faker",
+              "fullTitle": "Complete a Checkout Workflow Add a product to complete billing using faker",
+              "timedOut": null,
+              "duration": 23605,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_checkout.default.completeBilling(); //complete the billing form \n\ncy.url().should('include', _routes.default.checkout);\ncy.get(_checkout.default.titleOfPage).should('have.text', ' Billing ');\ncy.get(_checkout.default.continueShopping).should('be.visible');",
+              "err": {},
+              "uuid": "429f46d2-151f-409c-a63e-7fe3dc677da7",
+              "parentUUID": "36d11a69-3a65-4f36-a389-9060913fcbc4",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Complete Payment for Order",
+              "fullTitle": "Complete a Checkout Workflow Complete Payment for Order",
+              "timedOut": null,
+              "duration": 20835,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_checkout.default.completeBilling(); //continue to checkout\n\n_checkout.default.continueToPayment(); //complete the billing form \n\n_checkout.default.makePayment(); //proceed to enter and submit payment details\n\ncy.get(_checkout.default.titleOfPage).should('have.text', ' Billing ');\ncy.get(_checkout.default.continueShopping).should('be.visible');\ncy.get(_checkout.default.placeOrderBtn).should('be.visible');",
+              "err": {},
+              "uuid": "de994dbb-37ae-4510-a062-36b3d3c8cde6",
+              "parentUUID": "36d11a69-3a65-4f36-a389-9060913fcbc4",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify Order is complete",
+              "fullTitle": "Complete a Checkout Workflow Verify Order is complete",
+              "timedOut": null,
+              "duration": 25685,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "_checkout.default.completeBilling(); //continue to checkout\n\n_checkout.default.continueToPayment(); //complete the billing form \n\n_checkout.default.confirmPaymemt(); //proceed to enter and submit payment details\n\ncy.url().should('contain', 'order');\ncy.wait(2000); //wait for order page to load\ncy.get(_checkout.default.confirmation).should('be.visible');\ncy.get(_checkout.default.invoice).should('be.visible');",
+              "err": {
+                "message": "CypressError: Timed out retrying after 4050ms: `cy.click()` failed because the page updated while this command was executing. Cypress tried to locate elements based on this query:\n\n> cy.get(button[type='submit'])\n\nWe initially found matching element(s), but while waiting for them to become actionable, they disappeared from the page. Common situations why this happens:\n  - Your JS framework re-rendered asynchronously\n  - Your app code reacted to an event firing and removed the element\n\nYou can typically solve this by breaking up a chain. For example, rewrite:\n\n> `cy.get('button').click().click()`\n\nto\n\n> `cy.get('button').as('btn').click()`\n> `cy.get('@btn').click()`\n\nhttps://on.cypress.io/element-has-detached-from-dom",
+                "estack": "CypressError: Timed out retrying after 4050ms: `cy.click()` failed because the page updated while this command was executing. Cypress tried to locate elements based on this query:\n\n> cy.get(button[type='submit'])\n\nWe initially found matching element(s), but while waiting for them to become actionable, they disappeared from the page. Common situations why this happens:\n  - Your JS framework re-rendered asynchronously\n  - Your app code reacted to an event firing and removed the element\n\nYou can typically solve this by breaking up a chain. For example, rewrite:\n\n> `cy.get('button').click().click()`\n\nto\n\n> `cy.get('button').as('btn').click()`\n> `cy.get('@btn').click()`\n\nhttps://on.cypress.io/element-has-detached-from-dom\n    at retryActionability (https://ui-automation-camp.vercel.app/__cypress/runner/cypress_runner.js:133700:82)\n    at tryCatcher (https://ui-automation-camp.vercel.app/__cypress/runner/cypress_runner.js:11327:23)\n    at Promise.attempt.Promise.try (https://ui-automation-camp.vercel.app/__cypress/runner/cypress_runner.js:8601:29)\n    at whenStable (https://ui-automation-camp.vercel.app/__cypress/runner/cypress_runner.js:151606:65)\n    at <unknown> (https://ui-automation-camp.vercel.app/__cypress/runner/cypress_runner.js:151014:14)\n    at tryCatcher (https://ui-automation-camp.vercel.app/__cypress/runner/cypress_runner.js:11327:23)\n    at Promise._settlePromiseFromHandler (https://ui-automation-camp.vercel.app/__cypress/runner/cypress_runner.js:9262:31)\n    at Promise._settlePromise (https://ui-automation-camp.vercel.app/__cypress/runner/cypress_runner.js:9319:18)\n    at Promise._settlePromise0 (https://ui-automation-camp.vercel.app/__cypress/runner/cypress_runner.js:9364:10)\n    at Promise._settlePromises (https://ui-automation-camp.vercel.app/__cypress/runner/cypress_runner.js:9444:18)\n    at Promise._fulfill (https://ui-automation-camp.vercel.app/__cypress/runner/cypress_runner.js:9388:18)\n    at <unknown> (https://ui-automation-camp.vercel.app/__cypress/runner/cypress_runner.js:11002:46)\nFrom Your Spec Code:\n    at CompleteOrder.confirmPaymemt (webpack:///./cypress/e2e/pageobjects/checkout.page.js:126:35)\n    at Context.eval (webpack:///./cypress/e2e/test/Checkout.cy.js:57:20)",
+                "diff": null
+              },
+              "uuid": "4a7cc575-9bc9-4c3e-bdb6-080ac25374e2",
+              "parentUUID": "36d11a69-3a65-4f36-a389-9060913fcbc4",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "429f46d2-151f-409c-a63e-7fe3dc677da7",
+            "de994dbb-37ae-4510-a062-36b3d3c8cde6"
+          ],
+          "failures": [
+            "4a7cc575-9bc9-4c3e-bdb6-080ac25374e2"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 70125,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

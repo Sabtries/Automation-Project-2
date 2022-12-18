@@ -1,0 +1,148 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 2,
+    "pending": 0,
+    "failures": 1,
+    "start": "2022-12-18T01:52:33.056Z",
+    "end": "2022-12-18T01:53:15.357Z",
+    "duration": 42301,
+    "testsRegistered": 3,
+    "passPercent": 66.66666666666666,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "c777f435-2d70-4415-adc9-9f9bfb653298",
+      "title": "",
+      "fullFile": "cypress\\e2e\\test\\Cart.cy.js",
+      "file": "cypress\\e2e\\test\\Cart.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9297d75c-6924-40a2-8088-5887f28e6a0e",
+          "title": "Verify Product Details",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Decrease product quantity from Cart Summary",
+              "fullTitle": "Verify Product Details Decrease product quantity from Cart Summary",
+              "timedOut": null,
+              "duration": 18191,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "//choose an item from gallery page\n_cart.default.selectMacbook(); //increase the qauntity of the product to 2\n\n_cart.default.increaseProductAmt(); //add the products to cart\n\n_cart.default.addLaptopToCart();\ncy.wait(4000); //wait for page to load\n//decrease product to 1 item\n_cart.default.decreaseQuantity();\ncy.get(_cart.default.cartQuantity).should('have.text', '1');\ncy.get(_cart.default.total).should('contain.text', '$2,000.00');\ncy.url().should('include', _routes.default.cart);",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `button[title='Decrement quantity']`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `button[title='Decrement quantity']`, but never found it.\n    at CartFlow.decreaseQuantity (webpack:///./cypress/e2e/pageobjects/cart.page.js:75:11)\n    at Context.eval (webpack:///./cypress/e2e/test/Cart.cy.js:33:17)",
+                "diff": null
+              },
+              "uuid": "e805f4d8-78e3-4740-93b5-b5f9b9561250",
+              "parentUUID": "9297d75c-6924-40a2-8088-5887f28e6a0e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Remove an item from the cart summary page",
+              "fullTitle": "Verify Product Details Remove an item from the cart summary page",
+              "timedOut": null,
+              "duration": 13381,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//choose an item from gallery page       \n_cart.default.selectMacbook(); //wait for page to load\n\ncy.wait(3000); //add the products to cart\n_cart.default.addLaptopToCart(); //wait for page to load\n\ncy.wait(1000); //remove laptop from cart\n_cart.default.deleteFromCart();\ncy.wait(1000);\ncy.get(_cart.default.cartAmount).should('have.text', ' 0 ');\ncy.get(_cart.default.cartQuantity).should('not.exist');\ncy.get(_cart.default.total).should('not.exist');\ncy.url().should('include', _routes.default.cart);",
+              "err": {},
+              "uuid": "ada3d7c5-0735-4a86-8222-68413301e0c0",
+              "parentUUID": "9297d75c-6924-40a2-8088-5887f28e6a0e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Return to the product detail page",
+              "fullTitle": "Verify Product Details Return to the product detail page",
+              "timedOut": null,
+              "duration": 10505,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//choose 2 items from gallery page \n_cart.default.addPillow();\n_cart.default.selectMacbook(); //wait for page to load\n\ncy.wait(1000); //add the products to cart\n_cart.default.addLaptopToCart(); //return to product detail page\n\n_cart.default.navigateToPageDetail();\ncy.get(_cart.default.title).should('contain.text', 'Mackbook Pro');\ncy.get(_cart.default.quantity).should('contain.value', '1');\ncy.get(_cart.default.total).should('not.exist');\ncy.url().should('include', _routes.default.laptopDetail);",
+              "err": {},
+              "uuid": "8768c2b2-6271-4dd4-a2f4-301dabdbebf1",
+              "parentUUID": "9297d75c-6924-40a2-8088-5887f28e6a0e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ada3d7c5-0735-4a86-8222-68413301e0c0",
+            "8768c2b2-6271-4dd4-a2f4-301dabdbebf1"
+          ],
+          "failures": [
+            "e805f4d8-78e3-4740-93b5-b5f9b9561250"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 42077,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

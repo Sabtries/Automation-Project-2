@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-12-18T01:55:42.683Z",
+    "end": "2022-12-18T01:56:22.326Z",
+    "duration": 39643,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "83fa7317-304b-4c6d-a97a-9b2f669b23c9",
+      "title": "",
+      "fullFile": "cypress\\e2e\\test\\productDetail.cy.js",
+      "file": "cypress\\e2e\\test\\productDetail.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "a2c83dcd-6c65-4bb4-92bc-4f9572cdfb9b",
+          "title": "Verify Product Details",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Switch images on product detail page",
+              "fullTitle": "Verify Product Details Switch images on product detail page",
+              "timedOut": null,
+              "duration": 15148,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//go to the product detail page \n_pDetail.default.goToDetailPage();\ncy.wait(2000); //switch images \n_pDetail.default.imageSwitch();\ncy.wait(1000);\ncy.get(_pDetail.default.imageTwo).should('contain.text', '2 of 2'); //this image should be the selected in the main view\ncy.url().should('contain', _routes.default.detailed); //test should be done on product detail page",
+              "err": {},
+              "uuid": "98393333-db6f-40e3-8e05-7c7a2333a633",
+              "parentUUID": "a2c83dcd-6c65-4bb4-92bc-4f9572cdfb9b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Add an item to cart from the product detail page",
+              "fullTitle": "Verify Product Details Add an item to cart from the product detail page",
+              "timedOut": null,
+              "duration": 13327,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//go to the product detail page \n_pDetail.default.goToDetailPage(); //wait for page to load\n\ncy.wait(3000); //add item to the cart \n_pDetail.default.addSweatshirt();\ncy.get(_pDetail.default.cart).should('be.visible'); //this image should be the selected in the main view\ncy.url().should('include', _routes.default.detailed); //test should be done on product detail page\ncy.get(_pDetail.default.cart).should('contain.text', '50'); //the price of the item should be reflected in cart",
+              "err": {},
+              "uuid": "913e313e-4834-4ce0-9462-cb14af05a9ce",
+              "parentUUID": "a2c83dcd-6c65-4bb4-92bc-4f9572cdfb9b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Confirm Back to Products button directs to the product gallery page",
+              "fullTitle": "Verify Product Details Confirm Back to Products button directs to the product gallery page",
+              "timedOut": null,
+              "duration": 10522,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//go to the product detail page \n_pDetail.default.goToDetailPage(); //add item to the cart \n\n_pDetail.default.backToMain();\ncy.get(_pDetail.default.homeBtn).should('be.visible'); //page should have a Home button\ncy.url().should('contain', _routes.default.products); //should be directed to the product gallery page\ncy.get(_pDetail.default.Iframe).should('be.visible'); //this image should not be in the main view",
+              "err": {},
+              "uuid": "8004659c-cf12-478a-8d4a-a94779c61645",
+              "parentUUID": "a2c83dcd-6c65-4bb4-92bc-4f9572cdfb9b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "98393333-db6f-40e3-8e05-7c7a2333a633",
+            "913e313e-4834-4ce0-9462-cb14af05a9ce",
+            "8004659c-cf12-478a-8d4a-a94779c61645"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 38997,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
